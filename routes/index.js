@@ -1,8 +1,14 @@
-import  {Router}  from "express";
-import userRouters from "./userRoutes.js";
+import {Router} from "express"
+import userRoutes from "./userRoutes.js"
+import { productRoutes } from "./productRoutes.js"
+import categoryRoutes from "./categoryRoutes.js"
 
-const routers = Router()
 
-routers.use("/user",userRouters)
+const routes=Router()
 
-export default routers
+routes.use("/user",userRoutes)
+routes.use("/product",productRoutes)
+routes.use("/category",categoryRoutes)
+
+
+export default routes

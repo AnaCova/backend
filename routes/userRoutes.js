@@ -11,7 +11,7 @@ userRouters.get("/:id",(req,res,) =>{
 })
 
 userRouters.post("/",(req,res) =>{
-    res.send("PostUser")
+    res.send("CreateUser")
 })
 
 userRouters.put("/",(req,res) =>{
