@@ -1,26 +1,24 @@
 import express from "express"
+import { isUser } from "../utils/middleware.js"
 
-const userRouters = express.Router()
+const userRoutes = express.Router()
 
-userRouters.get("",(req,res,) =>{
-    res.send("GetAllUsers")
+userRoutes.get("/", (req, res) => {
+    res.send("getAllAuser")
+})
+userRoutes.get("/:id", (req, res) => {
+    res.send({ getUserById: req.params.id })
 })
 
-userRouters.get("/:id",(req,res,) =>{
-    res.send("GetUserById")
+userRoutes.use(isUser)
+userRoutes.post("/",(req, res) => {
+    res.send({ createUser: req.body })
+})
+userRoutes.put("/", (req, res) => {
+    res.send("updateUser")
+})
+userRoutes.delete("/", (req, res) => {
+    res.send("deleteUser")
 })
 
-userRouters.post("/",(req,res) =>{
-    res.send("PostUser")
-})
-
-userRouters.put("/",(req,res) =>{
-    res.send("UpdateUser")
-})
-
-
-userRouters.delete("/",(req,res) =>{
-    res.send("DeleteUser")
-})
-
-export default userRouters
+export default userRoutes
